@@ -150,6 +150,7 @@ class RedditChecker:
         if not os.path.exists(f'{self.main_dir}/data_pics/'):
             os.makedirs(f'{self.main_dir}/data_pics/')
         pairplot.savefig(f'{self.main_dir}/data_pics/wsb_pairplot.png')
+        sns.heatmap(df.corr(), annot=True).get_figure().savefig(f'{self.main_dir}/data_pics/wsb_heatmap.png')
            
 
 if __name__ == '__main__':
