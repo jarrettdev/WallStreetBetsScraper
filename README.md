@@ -19,7 +19,9 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
+Place your reddit api credentials in reddit_credentials.json
 
+https://www.jcchouinard.com/get-reddit-api-credentials-with-praw/
 
 python reddit_stocks_comment_watch.py
 
