@@ -1,7 +1,7 @@
 # WallStreetBetsScraper
 
 ## Exploratory Data Analysis
-![alt text](https://raw.githubusercontent.com/jarrettdev/WallStreetBetsScraper/main/data/reddit_stocks/data_pics/wsb_pairplot.png?token=APIYICI4COOHY3KTH6SGGM3BRLE5A)
+![alt text](https://raw.githubusercontent.com/jarrettdev/WallStreetBetsScraper/main/data/reddit_stocks/data_pics/wsb_pairplot.png)
 
 ## How to run
 
