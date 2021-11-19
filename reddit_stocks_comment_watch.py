@@ -11,6 +11,7 @@ import prices
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import webbrowser
 
 class RedditChecker:
 
@@ -21,6 +22,8 @@ class RedditChecker:
         creds = json.load(creds_file)
         client_id = creds['client_id']
         client_secret = creds['client_secret']
+    #client_id = 'Cdp5_MJZQCzo9A'
+    #client_secret = 'esze4IquPXoBizHrOCt1goI7LtOL_Q'
     def __init__(self):
         self.reddit = praw.Reddit(client_id=self.client_id,
                                   client_secret=self.client_secret,
@@ -107,6 +110,8 @@ class RedditChecker:
                 csv_string = f'{dt_string}_wsb.csv'
                 self.to_csv(item, csv_string)
             #sleep for 35 minutes
+            df = pd.read_csv(f'{self.main_dir}/comment data/{dt_string}_wsb.csv')
+            self.add_to_watchlist(df)
             self.combine_csvs()
             self.plot_csv()
             print('sleeping for 35 minutes...')
@@ -142,11 +147,18 @@ class RedditChecker:
         df.to_csv(f'{self.main_dir}/combined_csvs.csv', index=False)
         print('combined csvs')
 
+    #adds ticker to macroaxis.com watchlist for portfolio optimization
+    def add_to_watchlist(self, df):
+        print('Adding tickers to watchlist.')
+        top_ten_tickers = df['Tickers'].value_counts().head(10)
+        for ticker in top_ten_tickers.keys():
+            webbrowser.open(f'https://www.macroaxis.com/stock/{ticker}/')
+    
     def plot_csv(self):
         df = pd.read_csv(f'{self.main_dir}/combined_csvs.csv')
         pairplot = sns.pairplot(df)
         #heatmap = sns.heatmap(df.corr(), annot=True)
-        plt.show()
+        #plt.show()
         if not os.path.exists(f'{self.main_dir}/data_pics/'):
             os.makedirs(f'{self.main_dir}/data_pics/')
         pairplot.savefig(f'{self.main_dir}/data_pics/wsb_pairplot.png')
