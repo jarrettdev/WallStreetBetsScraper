@@ -4,6 +4,11 @@
 ![alt text](https://raw.githubusercontent.com/jarrettdev/WallStreetBetsScraper/main/data/reddit_stocks/data_pics/wsb_pairplot.png)
 ![alt text](https://raw.githubusercontent.com/jarrettdev/WallStreetBetsScraper/main/data/reddit_stocks/data_pics/wsb_heatmap.png)
 
+## Macroaxis Watchlist Integration (Optimize Portfolio based on scraped tickers)
+![Macroaxis Screenshot](https://raw.githubusercontent.com/jarrettdev/WallStreetBetsScraper/main/resources/Macroaxis_Portfolios.png)
+
+## https://macroaxis.com
+
 ## How to run
 
 python -m venv venv
