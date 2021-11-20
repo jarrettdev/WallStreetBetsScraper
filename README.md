@@ -18,6 +18,8 @@
 
 ## How to run
 
+Sign up for a Macroaxis account.
+
 python -m venv venv
 
 
